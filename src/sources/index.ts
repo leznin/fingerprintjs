@@ -39,6 +39,12 @@ import getPrivateClickMeasurement from './private_click_measurement'
 import { getWebGlBasics, getWebGlExtensions } from './webgl'
 import getAudioContextBaseLatency from './audio_base_latency'
 import getDateTimeLocale from './date_time_locale'
+// New enhanced sources
+import getTelegramWebAppFingerprint from './telegram_webapp'
+import { getBehavioralFingerprintSync } from './behavioral'
+import getWebViewFingerprint from './webview'
+import { getNetworkFingerprintSync } from './network'
+import { getHapticFingerprintSync } from './haptic'
 
 /**
  * The list of entropy sources used to make visitor identifiers.
@@ -101,6 +107,13 @@ export const sources = {
   // after other sources.
   webGlBasics: getWebGlBasics,
   webGlExtensions: getWebGlExtensions,
+  
+  // Enhanced fingerprinting sources for better device identification
+  telegramWebApp: getTelegramWebAppFingerprint,
+  behavioral: getBehavioralFingerprintSync,
+  webView: getWebViewFingerprint,
+  network: getNetworkFingerprintSync,
+  haptic: getHapticFingerprintSync,
 }
 
 /**
